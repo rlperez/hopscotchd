@@ -34,4 +34,6 @@ config :hopscotchd, :pow,
        user: Hopscotchd.Users.User,
        repo: Hopscotchd.Repo,
        extensions: [PowResetPassword, PowEmailConfirmation],
-       controller_callbacks: Pow.Extension.Phoenix.ControllerCallbacks
+       controller_callbacks: Pow.Extension.Phoenix.ControllerCallbacks,
+       mailer_backend: HopscotchdWeb.Pow.Mailer,
+       web_mailer_module: HopscotchdWeb

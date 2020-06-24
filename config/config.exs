@@ -37,3 +37,27 @@ config :hopscotchd, :pow,
        controller_callbacks: Pow.Extension.Phoenix.ControllerCallbacks,
        mailer_backend: HopscotchdWeb.Pow.Mailer,
        web_mailer_module: HopscotchdWeb
+
+config :hopscotchd, :pow_assent,
+       providers: [
+         google: [
+           client_id: "REPLACE_WITH_CLIENT_ID",
+           client_secret: "REPLACE_WITH_CLIENT_SECRET",
+           strategy: Assent.Strategy.Google
+         ],
+         facebook: [
+          client_id: "REPLACE_WITH_CLIENT_ID",
+          client_secret: "REPLACE_WITH_CLIENT_SECRET",
+          strategy: Assent.Strategy.Facebook
+         ],
+         instagram: [
+          client_id: "REPLACE_WITH_CLIENT_ID",
+          client_secret: "REPLACE_WITH_CLIENT_SECRET",
+          strategy: Assent.Strategy.Instagram
+         ],
+         twitter: [
+          client_id: "REPLACE_WITH_CLIENT_ID",
+          client_secret: "REPLACE_WITH_CLIENT_SECRET",
+          strategy: Assent.Strategy.Twitter
+         ]
+       ]

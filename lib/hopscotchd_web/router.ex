@@ -18,6 +18,13 @@ defmodule HopscotchdWeb.Router do
     plug :fetch_flash
     plug :protect_from_forgery
     plug :put_secure_browser_headers
+    plug :pow_assent_persistent_session
+  end
+
+  defp pow_assent_persistent_session(conn, _opts) do
+    PowAssent.Plug.put_create_session_callback(conn, fn conn, _provider, _config ->
+      PowPersistentSession.Plug.create(conn, Pow.Plug.current_user(conn))
+    end)
   end
 
   pipeline :api do
@@ -44,8 +51,8 @@ defmodule HopscotchdWeb.Router do
   end
 
   scope "/", HopscotchdWeb do
-    # pipe_through [:browser, :protected]
-    pipe_through :browser
+    pipe_through [:browser, :protected]
+    # pipe_through :browser
 
     get "/", PageController, :index
   end

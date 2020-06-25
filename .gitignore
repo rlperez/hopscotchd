@@ -36,3 +36,5 @@ npm-debug.log
 *.iml
 /_build/
 .idea
+
+/node_modules/

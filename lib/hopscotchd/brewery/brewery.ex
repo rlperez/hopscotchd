@@ -14,6 +14,8 @@ defmodule Hopscotchd.Brewery.Brewery do
     field :website_url, :string
     field :type, :id
 
+    many_to_many :tags, Hopscotchd.Core.Tag, join_through: "brewery_tags"
+
     timestamps()
   end
 

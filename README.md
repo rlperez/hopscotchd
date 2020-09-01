@@ -1,5 +1,7 @@
 # Hopscotchd
 
+Eventually this will be a database of distilleries and breweries as well as information and reviews. The website will be built with Elixir, Phoenix, ReactJS, and GraphQL. 
+
 To start your Phoenix server:
 
   * Install dependencies with `mix deps.get`
